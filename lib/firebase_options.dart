@@ -78,5 +78,4 @@ class DefaultFirebaseOptions {
     storageBucket: 'stepexpert-bed14.firebasestorage.app',
     iosBundleId: 'com.example.stepexpert',
   );
-
 }
