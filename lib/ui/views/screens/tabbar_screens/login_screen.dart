@@ -56,25 +56,25 @@ class LoginScreen extends StatelessWidget {
               ),
             ),
             SizedBox(height: 10),
-            // Row(
-            //   mainAxisAlignment: MainAxisAlignment.center,
-            //   crossAxisAlignment: CrossAxisAlignment.center,
-            //   children: [
-            //     Text(
-            //       "Don’t have an account? ",
-            //       style: style12.copyWith(color: Color(0xff909090)),
-            //     ),
-            //     GestureDetector(
-            //       onTap: () {
-            //         DefaultTabController.of(context).animateTo(0);
-            //       },
-            //       child: Text(
-            //         "Signup",
-            //         style: style12.copyWith(color: primaryColor),
-            //       ),
-            //     ),
-            //   ],
-            // ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Text(
+                  "Don’t have an account? ",
+                  style: style12.copyWith(color: Color(0xff909090)),
+                ),
+                GestureDetector(
+                  onTap: () {
+                    DefaultTabController.of(context).animateTo(0);
+                  },
+                  child: Text(
+                    "Signup",
+                    style: style12.copyWith(color: primaryColor),
+                  ),
+                ),
+              ],
+            ),
           ],
         ),
       ),

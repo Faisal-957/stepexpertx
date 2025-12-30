@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:stepexpertx/core/constant/colors.dart';
-
 import 'package:stepexpertx/core/constant/string.dart';
 import 'package:stepexpertx/ui/views/screens/tabbar_screens/login_screen.dart';
 import 'package:stepexpertx/ui/views/screens/tabbar_screens/signup_screen.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class Tabbarscreen extends StatelessWidget {
   const Tabbarscreen({super.key});
@@ -12,118 +11,81 @@ class Tabbarscreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      // ✅ Add this
-      length: 2, // Login + Sign Up
-      child: Scaffold(
-        body: Stack(
-          children: [
-            Image.asset("$staticAssets/signup.png", fit: BoxFit.cover),
+      length: 2,
 
-            Positioned(
-              top: 256,
-              left: 19,
-              right: 19,
-              child: Container(
-                height: 443,
-                width: double.infinity,
-                decoration: BoxDecoration(
-                  color: whiteColor,
-                  borderRadius: BorderRadius.circular(6),
+      child: Scaffold(
+        ///
+        /// Start Body
+        ///
+        body: Container(
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage("$staticAssets/signup.png"),
+              fit: BoxFit.cover,
+            ),
+          ),
+          child: Center(
+            child: Container(
+              margin: EdgeInsets.only(top: 256, left: 19, right: 19),
+              height: 443,
+              width: double.infinity,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(6),
+              ),
+
+              child: Padding(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 8,
+                  vertical: 16,
                 ),
                 child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    const SizedBox(height: 10),
+                    ///
+                    /// Top logo
+                    ///
                     Container(
-                      height: 50,
                       width: 50,
+                      height: 50,
                       decoration: BoxDecoration(
-                        color: whiteColor,
                         borderRadius: BorderRadius.circular(25),
-                        gradient: const LinearGradient(
-                          colors: [Color(0xffFE2B5F), Color(0xffD02E56)],
-                          begin: Alignment.centerLeft,
-                          end: Alignment.centerRight,
+                        gradient: LinearGradient(
+                          colors: [primaryColor, Color(0xffD02E56)],
                         ),
                       ),
                       child: Image.asset("$staticAssets/bicep.png", scale: 4),
                     ),
-                    const SizedBox(height: 5),
-
                     Container(
-                      padding: EdgeInsets.only(left: 90, right: 90),
+                      padding: EdgeInsets.only(left: 80, right: 80),
                       child: TabBar(
-                        labelColor: Color(0xffFE2B5F),
-                        indicatorColor: Color(0xffFE2B5F),
+                        labelColor: primaryColor,
+                        indicatorColor: primaryColor,
                         indicatorSize: TabBarIndicatorSize.tab,
                         labelStyle: TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
                         ),
                         tabs: [
-                          SingleChildScrollView(child: Tab(text: "Signup")),
-                          SingleChildScrollView(child: Tab(text: "Login")),
+                          Tab(text: "Login"),
+                          Tab(text: "Signup"),
                         ],
                       ),
                     ),
-                    SizedBox(height: 20),
+                    20.verticalSpace,
                     Expanded(
                       child: TabBarView(
-                        children: [SignupScreen(), LoginScreen()],
-                        // children:                  [
-                        //   Padding(
-                        //     padding: const EdgeInsets.all(20),
-                        //     child: Column(
-                        //       children: [
-                        //         TextFormField(
-                        //           decoration: authdecoration.copyWith(
-                        //             hintText: "User name ",
-                        //           ),
-                        //         ),
-                        //         SizedBox(height: 10),
-                        //         TextFormField(
-                        //           decoration: authdecoration.copyWith(
-                        //             hintText: "Email",
-                        //           ),
-                        //         ),
-                        //         SizedBox(height: 10),
-                        //         TextFormField(
-                        //           obscureText: true,
-                        //           decoration: authdecoration.copyWith(
-                        //             hintText: "Password",
-                        //           ),
-                        //         ),
-                        //         SizedBox(height: 20),
-                        //         CustomButtons1(
-                        //           onTap: () {},
-                        //           linearGradient: LinearGradient(
-                        //             colors: [darkpink, primaryColor],
-                        //           ),
-                        //           child: Text(
-                        //             "SignUp",
-                        //             style: TextStyle(
-                        //               color: whiteColor,
-                        //               fontWeight: FontWeight.bold,
-                        //             ),
-                        //           ),
-                        //         ),
-                        //         SizedBox(height: 10),
-                        //         Text(
-                        //           "Already have an account? Login",
-                        //           style: style16.copyWith(
-                        //             color: Color(0xff909090),
-                        //           ),
-                        //         ),
-                        //       ],
-                        //     ),
-                        //   ),
-                        // ],
+                        children: [
+                          SingleChildScrollView(child: LoginScreen()),
+                          SingleChildScrollView(child: SignupScreen()),
+                        ],
                       ),
                     ),
                   ],
                 ),
               ),
             ),
-          ],
+          ),
         ),
       ),
     );
