@@ -4,6 +4,7 @@ import 'package:stepexpertx/core/constant/colors.dart';
 import 'package:stepexpertx/core/constant/string.dart';
 import 'package:stepexpertx/ui/views/screens/tabbar_screens/login_screen.dart';
 import 'package:stepexpertx/ui/views/screens/tabbar_screens/signup_screen.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class Tabbarscreen extends StatelessWidget {
   const Tabbarscreen({super.key});
@@ -24,7 +25,7 @@ class Tabbarscreen extends StatelessWidget {
               right: 19,
               child: Container(
                 height: 443,
-                width: 353,
+                width: double.infinity,
                 decoration: BoxDecoration(
                   color: whiteColor,
                   borderRadius: BorderRadius.circular(6),
@@ -59,8 +60,8 @@ class Tabbarscreen extends StatelessWidget {
                           fontWeight: FontWeight.bold,
                         ),
                         tabs: [
-                          Tab(text: "Signup"),
-                          Tab(text: "Login"),
+                          SingleChildScrollView(child: Tab(text: "Signup")),
+                          SingleChildScrollView(child: Tab(text: "Login")),
                         ],
                       ),
                     ),
