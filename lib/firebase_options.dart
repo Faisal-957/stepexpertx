@@ -44,38 +44,38 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyAJTtui8gXS8kM9yDCYpXa8XgcvV-9Toq4',
-    appId: '1:260227433666:android:36c1e7a2d7e323ff14e75b',
-    messagingSenderId: '260227433666',
-    projectId: 'stepexpert-bed14',
-    storageBucket: 'stepexpert-bed14.firebasestorage.app',
+    apiKey: 'AIzaSyBmD0nTwUM4KvGArUUbedJer88JJqLLp2Q',
+    appId: '1:67018964338:android:198a8cf071f6fe588331eb',
+    messagingSenderId: '67018964338',
+    projectId: 'stepexpert-202a7',
+    storageBucket: 'stepexpert-202a7.firebasestorage.app',
   );
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyDMtQICvRm-kZzFlo0RQaC01eqVxCIvwA0',
-    appId: '1:260227433666:web:5ba788793e8751fa14e75b',
-    messagingSenderId: '260227433666',
-    projectId: 'stepexpert-bed14',
-    authDomain: 'stepexpert-bed14.firebaseapp.com',
-    storageBucket: 'stepexpert-bed14.firebasestorage.app',
-    measurementId: 'G-ZV81CGLLRD',
+    apiKey: 'AIzaSyAyx9QboLHpbFPqNloA4aPoANzaEZUB5CY',
+    appId: '1:67018964338:web:f12d1e74f91dcf258331eb',
+    messagingSenderId: '67018964338',
+    projectId: 'stepexpert-202a7',
+    authDomain: 'stepexpert-202a7.firebaseapp.com',
+    storageBucket: 'stepexpert-202a7.firebasestorage.app',
+    measurementId: 'G-HPJLWR8QWX',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyD_THpMwrzqIa3ruHlLFJTg-AC3yjcy2QA',
-    appId: '1:260227433666:ios:6169095498e6a74214e75b',
-    messagingSenderId: '260227433666',
-    projectId: 'stepexpert-bed14',
-    storageBucket: 'stepexpert-bed14.firebasestorage.app',
-    iosBundleId: 'com.example.stepexpert',
+    apiKey: 'AIzaSyD1iekC67bfsw8Y6cODfnnuLCFJXm5C7NE',
+    appId: '1:67018964338:ios:577b558389dde4c08331eb',
+    messagingSenderId: '67018964338',
+    projectId: 'stepexpert-202a7',
+    storageBucket: 'stepexpert-202a7.firebasestorage.app',
+    iosBundleId: 'com.example.stepexpertx',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyD_THpMwrzqIa3ruHlLFJTg-AC3yjcy2QA',
-    appId: '1:260227433666:ios:6169095498e6a74214e75b',
-    messagingSenderId: '260227433666',
-    projectId: 'stepexpert-bed14',
-    storageBucket: 'stepexpert-bed14.firebasestorage.app',
-    iosBundleId: 'com.example.stepexpert',
+    apiKey: 'AIzaSyD1iekC67bfsw8Y6cODfnnuLCFJXm5C7NE',
+    appId: '1:67018964338:ios:577b558389dde4c08331eb',
+    messagingSenderId: '67018964338',
+    projectId: 'stepexpert-202a7',
+    storageBucket: 'stepexpert-202a7.firebasestorage.app',
+    iosBundleId: 'com.example.stepexpertx',
   );
 }

@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "67018964338",
+    "project_id": "stepexpert-202a7",
+    "storage_bucket": "stepexpert-202a7.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:67018964338:android:b0e550663fa88de98331eb",
+        "android_client_info": {
+          "package_name": "com.android.application"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBmD0nTwUM4KvGArUUbedJer88JJqLLp2Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:67018964338:android:198a8cf071f6fe588331eb",
+        "android_client_info": {
+          "package_name": "com.example.stepexpertx"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBmD0nTwUM4KvGArUUbedJer88JJqLLp2Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
