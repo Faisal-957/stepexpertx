@@ -6,7 +6,7 @@ import 'package:stepexpertx/ui/views/screens/workout_screen/workout_screen.dart'
 class RootViewModel extends ChangeNotifier {
   int selectedIndex = 0;
 
-  onClick(index) {
+  void onClick(index) {
     selectedIndex = index;
     notifyListeners();
   }

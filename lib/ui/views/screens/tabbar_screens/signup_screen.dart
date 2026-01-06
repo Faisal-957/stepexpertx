@@ -16,7 +16,7 @@ class SignupScreen extends StatelessWidget {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
 
-  final FirebaseAuth _auth = FirebaseAuth.instance;
+  final FirebaseAuth auth = FirebaseAuth.instance;
 
   Future<void> signUp() async {
     try {
@@ -38,7 +38,7 @@ class SignupScreen extends StatelessWidget {
           );
 
       // Success
-      print("Signup successful: ${user.user?.email}");
+      debugPrint("Signup successful: ${user.user?.email}");
       Get.snackbar(
         "Success",
         "Signup successful: ${user.user?.email}",
@@ -49,8 +49,8 @@ class SignupScreen extends StatelessWidget {
       // Navigate to RootScreen
       Get.offAll(() => const RootScreen());
     } on FirebaseAuthException catch (e) {
-      print("FirebaseAuth Error Code: ${e.code}");
-      print("FirebaseAuth Error Message: ${e.message}");
+      debugPrint("FirebaseAuth Error Code: ${e.code}");
+      debugPrint("FirebaseAuth Error Message: ${e.message}");
 
       Get.snackbar(
         "Signup Error",
@@ -59,6 +59,7 @@ class SignupScreen extends StatelessWidget {
         colorText: Colors.white,
       );
     } catch (e) {
+      // ignore: avoid_print
       print("Unknown error: $e");
       Get.snackbar(
         "Signup Error",
