@@ -108,7 +108,7 @@ class LoginScreen extends StatelessWidget {
                   DefaultTabController.of(context).animateTo(1);
                 },
                 child: Text(
-                  "Signup",
+                  "Sigp",
                   style: style12.copyWith(color: primaryColor),
                 ),
               ),

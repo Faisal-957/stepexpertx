@@ -6,6 +6,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:stepexpertx/core/constant/auth_decoration.dart';
 import 'package:stepexpertx/core/constant/colors.dart';
 import 'package:stepexpertx/core/constant/text_style.dart';
+import 'package:stepexpertx/core/services/auth_services.dart';
 import 'package:stepexpertx/ui/views/custom_widgets/custom_buttons.dart';
 import 'package:stepexpertx/ui/views/screens/root_screen/root_screen.dart';
 
@@ -16,7 +17,7 @@ class SignupScreen extends StatelessWidget {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
 
-  final FirebaseAuth auth = FirebaseAuth.instance;
+  final AuthServices _authServices = AuthServices();
 
   Future<void> signUp() async {
     try {
@@ -31,23 +32,28 @@ class SignupScreen extends StatelessWidget {
       }
 
       // Firebase signup
-      UserCredential user = await FirebaseAuth.instance
-          .createUserWithEmailAndPassword(
-            email: emailController.text.trim(),
-            password: passwordController.text.trim(),
-          );
-
-      // Success
-      debugPrint("Signup successful: ${user.user?.email}");
-      Get.snackbar(
-        "Success",
-        "Signup successful: ${user.user?.email}",
-        backgroundColor: Colors.green,
-        colorText: Colors.white,
+      final user = await _authServices.signUp(
+        emailController.text.trim(),
+        passwordController.text.trim(),
       );
+      if (user == null) {
+        Get.snackbar(
+          "Signup Error",
+          "Failed to create user",
+          backgroundColor: Colors.red,
+          colorText: Colors.white,
+        );
+      } else {
+        Get.snackbar(
+          "Success",
+          "Signup successful",
+          backgroundColor: Colors.green,
+          colorText: Colors.white,
+        );
+        Get.offAll(() => const RootScreen());
+      }
 
       // Navigate to RootScreen
-      Get.offAll(() => const RootScreen());
     } on FirebaseAuthException catch (e) {
       debugPrint("FirebaseAuth Error Code: ${e.code}");
       debugPrint("FirebaseAuth Error Message: ${e.message}");

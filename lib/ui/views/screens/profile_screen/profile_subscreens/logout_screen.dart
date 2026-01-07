@@ -1,9 +1,13 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_navigation/src/extension_navigation.dart';
 
 import 'package:stepexpertx/core/constant/colors.dart';
 import 'package:stepexpertx/core/constant/string.dart';
 import 'package:stepexpertx/core/constant/text_style.dart';
+import 'package:stepexpertx/ui/views/screens/tabbar_screens/tabbarscreen.dart';
 
 class LogoutBottomSheet {
   // Show Bottom Sheet
@@ -64,10 +68,16 @@ class LogoutBottomSheet {
                       minimumSize: Size(149, 39),
                     ),
 
-                    onPressed: () {
-                      Navigator.pop(context); // Close bottom sheet
-                      _showPopup(context); // Show popup
+                    onPressed: () async {
+                      await FirebaseAuth.instance.signOut(); // 🔥 REAL LOGOUT
+
+                      Get.back(); // bottom sheet close
+
+                      Get.offAll(
+                        () => Tabbarscreen(),
+                      ); // login/signup tabs screen
                     },
+
                     child: Text(
                       "Yes, Logout",
                       style: TextStyle(color: primaryColor),
@@ -83,18 +93,4 @@ class LogoutBottomSheet {
   }
 
   // Popup Function
-  static void _showPopup(BuildContext context) {
-    showDialog(
-      context: context,
-      builder: (_) => AlertDialog(
-        content: Text("You have logged out."),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.pop(context),
-            child: Text("OK"),
-          ),
-        ],
-      ),
-    );
-  }
 }
