@@ -26,11 +26,10 @@ class LoginScreen extends StatelessWidget {
         return;
       }
 
-      UserCredential user = await FirebaseAuth.instance
-          .signInWithEmailAndPassword(
-            email: emailController.text.trim(),
-            password: passwordController.text.trim(),
-          );
+      await FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: emailController.text.trim(),
+        password: passwordController.text.trim(),
+      );
 
       Get.snackbar(
         "Success",
@@ -108,7 +107,7 @@ class LoginScreen extends StatelessWidget {
                   DefaultTabController.of(context).animateTo(1);
                 },
                 child: Text(
-                  "Sigp",
+                  "Signup",
                   style: style12.copyWith(color: primaryColor),
                 ),
               ),

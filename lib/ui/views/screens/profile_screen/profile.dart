@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:stepexpertx/core/constant/colors.dart';
 import 'package:stepexpertx/core/constant/string.dart';
@@ -162,7 +163,9 @@ class Profile extends StatelessWidget {
                   width: 253,
                   borderRadius: 34,
 
-                  onTap: () {},
+                  onTap: () {
+                    showMyDialog(context);
+                  },
                   linearGradient: LinearGradient(
                     colors: [darkpink, primaryColor],
                   ),
@@ -179,6 +182,69 @@ class Profile extends StatelessWidget {
           ),
         ],
       ),
+    );
+  }
+
+  void showMyDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      barrierDismissible: true,
+      builder: (context) {
+        return Dialog(
+          backgroundColor: Colors.white,
+
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10),
+          ),
+          child: SizedBox(
+            height: MediaQuery.of(context).size.height * 0.3,
+            width: double.infinity,
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+              child: Column(
+                children: [
+                  Text(
+                    "Are you sure you want to cancel \nyour subscription",
+                    style: style16,
+                    textAlign: TextAlign.center,
+                  ),
+                  20.verticalSpace,
+                  Text(
+                    "You will lose access to all \napp features immediately",
+                    style: style16.copyWith(
+                      fontWeight: FontWeight.w500,
+                      color: Colors.black,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                  20.verticalSpace,
+                  CustomButtons1(
+                    onTap: () => Navigator.pop(context),
+                    boxColor: whiteColor,
+                    height: 42,
+                    width: 346,
+                    child: Text(
+                      "Keep Plan",
+                      style: style16.copyWith(color: primaryColor),
+                    ),
+                  ),
+                  20.verticalSpace,
+                  CustomButtons1(
+                    onTap: () => Navigator.pop(context),
+                    boxColor: primaryColor,
+                    height: 42,
+                    width: 346,
+                    child: Text(
+                      "Cancel Subscription",
+                      style: style16.copyWith(color: whiteColor),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        );
+      },
     );
   }
 }

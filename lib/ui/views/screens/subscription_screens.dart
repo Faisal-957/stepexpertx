@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_navigation/src/extension_navigation.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'package:stepexpertx/core/constant/colors.dart';
 import 'package:stepexpertx/core/constant/string.dart';
 import 'package:stepexpertx/ui/views/custom_widgets/custom_buttons.dart';
+import 'package:stepexpertx/ui/views/screens/tabbar_screens/tabbarscreen.dart';
 
 class SubscriptionScreens extends StatelessWidget {
   const SubscriptionScreens({super.key});
@@ -111,7 +114,15 @@ class SubscriptionScreens extends StatelessWidget {
                       ),
                     ),
                     SizedBox(height: 50),
-                    Text("Cancle", style: TextStyle(color: Color(0xffABA6A6))),
+                    GestureDetector(
+                      onTap: () {
+                        Get.to(Tabbarscreen());
+                      },
+                      child: Text(
+                        "Cancle",
+                        style: TextStyle(color: Color(0xffABA6A6)),
+                      ),
+                    ),
                   ],
                 ),
               ),
@@ -121,4 +132,8 @@ class SubscriptionScreens extends StatelessWidget {
       ),
     );
   }
+
+  ///
+  ///  dialouge box
+  ///
 }

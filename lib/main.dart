@@ -1,6 +1,8 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:stepexpertx/ui/views/screens/profile_screen/profile.dart';
+import 'package:stepexpertx/ui/views/screens/splash_screen.dart';
 
 import 'package:stepexpertx/ui/views/screens/tabbar_screens/tabbarscreen.dart';
 import 'firebase_options.dart';
@@ -25,7 +27,7 @@ class MyApp extends StatelessWidget {
       ),
       child: GetMaterialApp(
         debugShowCheckedModeBanner: false,
-        home: Tabbarscreen(),
+        home: SplashScreen(),
       ),
     );
   }
