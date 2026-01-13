@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:stepexpertx/core/constant/string.dart';
 import 'package:stepexpertx/ui/views/screens/subscription_screens.dart';
+import 'package:stepexpertx/ui/views/screens/tabbar_screens/tabbarscreen.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -18,7 +19,7 @@ class _SplashScreenState extends State<SplashScreen> {
       if (!mounted) return;
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => SubscriptionScreens()),
+        MaterialPageRoute(builder: (context) => Tabbarscreen()),
       );
     });
   }

@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/route_manager.dart';
@@ -20,59 +22,35 @@ class SignupScreen extends StatelessWidget {
   final AuthServices _authServices = AuthServices();
 
   Future<void> signUp() async {
-    try {
-      if (emailController.text.isEmpty || passwordController.text.isEmpty) {
-        Get.snackbar(
-          "Error",
-          "Email or password cannot be empty",
-          backgroundColor: Colors.red,
-          colorText: Colors.white,
-        );
-        return;
-      }
-
-      // Firebase signup
-      final user = await _authServices.signUp(
-        emailController.text.trim(),
-        passwordController.text.trim(),
-      );
-      if (user == null) {
-        Get.snackbar(
-          "Signup Error",
-          "Failed to create user",
-          backgroundColor: Colors.red,
-          colorText: Colors.white,
-        );
-      } else {
-        Get.snackbar(
-          "Success",
-          "Signup successful",
-          backgroundColor: Colors.green,
-          colorText: Colors.white,
-        );
-        Get.offAll(() => const RootScreen());
-      }
-
-      // Navigate to RootScreen
-    } on FirebaseAuthException catch (e) {
-      debugPrint("FirebaseAuth Error Code: ${e.code}");
-      debugPrint("FirebaseAuth Error Message: ${e.message}");
-
+    if (emailController.text.isEmpty ||
+        passwordController.text.isEmpty ||
+        nameController.text.isEmpty) {
       Get.snackbar(
-        "Signup Error",
-        e.message ?? "Something went wrong",
+        "Error",
+        "All fields are required",
         backgroundColor: Colors.red,
         colorText: Colors.white,
       );
-    } catch (e) {
-      // ignore: avoid_print
-      print("Unknown error: $e");
+      return;
+    }
+
+    bool isSuccess = await _authServices.signUp(
+      emailController.text.trim(),
+      passwordController.text.trim(),
+      nameController.text.trim(),
+    );
+
+    if (isSuccess) {
       Get.snackbar(
-        "Signup Error",
-        "Something went wrong",
-        backgroundColor: Colors.red,
+        "Success",
+        "Signup successful",
+        backgroundColor: Colors.green,
         colorText: Colors.white,
       );
+
+      Get.offAll(() => const RootScreen());
+    } else {
+      // Error handling is done inside AuthServices
     }
   }
 
